@@ -13,6 +13,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | RAG knowledge base | Upload TXT, PDF, and DOCX sources, chunk content, create embeddings, store vectors in MySQL, retrieve cited context, and track document provenance |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
 | Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
+| Evaluation coverage gate | Audits scenario packs for required safety, citation, policy, credential, and research coverage before release |
 | Administration | RBAC for super admins, department admins, reviewers, and end users with scoped permissions |
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
@@ -66,6 +67,7 @@ Run local checks:
 ```bash
 php scripts/lint.php
 php scripts/run-evaluation.php
+php scripts/evaluation-coverage-gate.php
 php scripts/check-security-headers.php
 ```
 
@@ -111,6 +113,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [RAG Pipeline](docs/rag-pipeline.md)
 - [Innovation Layer](docs/innovation-layer.md)
 - [Evaluation Lab](docs/evaluation-lab.md)
+- [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
 - [Conversation Audit Export](docs/conversation-audit-export.md)
 - [API Reference](docs/api.md)
 - [Deployment Guide](docs/deployment.md)

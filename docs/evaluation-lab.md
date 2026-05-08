@@ -25,6 +25,14 @@ php scripts/run-evaluation.php
 
 This is useful for CI because broken scenario packs fail early.
 
+Use the coverage gate to audit whether the pack covers the required release-risk areas:
+
+```bash
+php scripts/evaluation-coverage-gate.php examples/evaluation-pack.json
+```
+
+The gate checks required coverage tags, duplicate scenario IDs, high-impact evidence depth, and citation behavior before a prompt, model, provider, or RAG configuration is approved.
+
 ## Recommended Evaluation Categories
 
 | Category | What to test |

@@ -6,6 +6,7 @@ Use this checklist before approving a bot instance for production.
 | --- | --- | --- |
 | Ownership | Is a business owner and technical owner assigned? | Bot record, department owner |
 | Prompt approval | Is the active prompt version approved and tested? | Prompt version record |
+| Evaluation coverage | Does the scenario pack cover prompt injection, credential safety, policy grounding, citation behavior, and research support before release? | Evaluation coverage gate report |
 | RAG provenance | Are source documents approved and current? | Knowledge document register |
 | Access control | Are admin roles scoped by department? | RBAC review |
 | MFA | Are all admin accounts enrolled in MFA? | User security report |
