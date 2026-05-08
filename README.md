@@ -20,6 +20,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
 | Audit export | Redacted evidence packages with package-level SHA-256 integrity checks for conversation review |
+| Redaction assurance | Residual scan for unredacted tokens, API keys, JWT-like values, emails, and direct identifiers before evidence sharing |
 | Provider incident evidence | Redacted, hashable packages for provider degradation, fallback routing, cost spikes, and safety-filter changes |
 | Cost budget audit | Department and bot-level cost guardrail for projected spend, hard stops, owner review, and approval evidence |
 | Governance | Interaction logging, cost tracking, token analytics, provider uptime, moderation flags, data residency controls, and configurable retention windows |
@@ -77,6 +78,7 @@ php scripts/check-security-headers.php
 php scripts/provider-incident-evidence.php
 php scripts/prompt-release-audit.php
 php scripts/cost-budget-audit.php
+php scripts/redaction-residual-audit.php
 ```
 
 ## Configuration Highlights
@@ -124,6 +126,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Evaluation Lab](docs/evaluation-lab.md)
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
 - [Conversation Audit Export](docs/conversation-audit-export.md)
+- [Redaction Residual Audit](docs/redaction-residual-audit.md)
 - [Provider Incident Evidence](docs/provider-incident-evidence.md)
 - [Prompt Release Audit](docs/prompt-release-audit.md)
 - [Cost Budget Audit](docs/cost-budget-audit.md)
