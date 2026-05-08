@@ -11,6 +11,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Prompt firewall | Detect prompt extraction, secret requests, data exfiltration attempts, and unsafe administrative actions before provider calls |
 | Chat experience | Modern operations-console UI with compact navigation, quick prompts, live safety/routing signals, usage telemetry, and source citations |
 | RAG knowledge base | Upload TXT, PDF, and DOCX sources, chunk content, create embeddings, store vectors in MySQL, retrieve cited context, and track document provenance |
+| RAG freshness audit | Review source ownership, review dates, citation requirements, and stale indexes before release |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
 | Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
 | Evaluation coverage gate | Audits scenario packs for required safety, citation, policy, credential, and research coverage before release |
@@ -68,6 +69,7 @@ Run local checks:
 php scripts/lint.php
 php scripts/run-evaluation.php
 php scripts/evaluation-coverage-gate.php
+php scripts/rag-freshness-audit.php
 php scripts/check-security-headers.php
 ```
 
@@ -111,6 +113,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Architecture](docs/architecture.md)
 - [Security Model](docs/security-model.md)
 - [RAG Pipeline](docs/rag-pipeline.md)
+- [RAG Freshness Audit](docs/rag-freshness-audit.md)
 - [Innovation Layer](docs/innovation-layer.md)
 - [Evaluation Lab](docs/evaluation-lab.md)
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)

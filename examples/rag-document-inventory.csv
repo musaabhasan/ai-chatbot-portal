@@ -1,0 +1,5 @@
+document_id,title,owner,source_type,data_classification,indexed_at,last_reviewed_at,next_review_due,citation_required,status,notes
+KB-001,Academic withdrawal policy,Registrar Office,policy,regulated,2026-04-01,2026-04-01,2026-06-01,yes,active,High-impact academic policy source
+KB-002,IT password reset guide,IT Service Desk,procedure,internal,2026-04-20,2026-04-20,2026-07-01,yes,active,Reviewed and indexed after latest approval
+KB-003,Scholarship eligibility FAQ,Financial Aid Office,faq,confidential,2026-04-10,2026-04-10,2026-07-15,yes,active,Owner assigned and citations required
+KB-004,Outdated campus event schedule,Student Affairs,page,public,2025-12-01,2025-12-01,2026-01-15,no,archived,Retained for audit but disabled from retrieval
