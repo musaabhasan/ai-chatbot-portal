@@ -1,0 +1,61 @@
+{
+  "period": "2026-05",
+  "budgets": [
+    {
+      "department": "Academic Advising",
+      "bot_id": "advisor-main",
+      "provider": "openai",
+      "monthly_budget_usd": 1200,
+      "spend_to_date_usd": 620,
+      "projected_monthly_spend_usd": 980,
+      "alert_threshold_percent": 80,
+      "hard_stop_percent": 110,
+      "tokens_this_month": 8400000,
+      "owner": "advising-technology",
+      "review_status": "approved",
+      "evidence_reference": "COST-2026-05-001"
+    },
+    {
+      "department": "IT Support",
+      "bot_id": "it-helpdesk",
+      "provider": "gemini",
+      "monthly_budget_usd": 800,
+      "spend_to_date_usd": 760,
+      "projected_monthly_spend_usd": 940,
+      "alert_threshold_percent": 75,
+      "hard_stop_percent": 105,
+      "tokens_this_month": 6100000,
+      "owner": "it-operations",
+      "review_status": "pending",
+      "evidence_reference": ""
+    },
+    {
+      "department": "Research Office",
+      "bot_id": "grant-assistant",
+      "provider": "deepseek",
+      "monthly_budget_usd": 500,
+      "spend_to_date_usd": 410,
+      "projected_monthly_spend_usd": 720,
+      "alert_threshold_percent": 80,
+      "hard_stop_percent": 120,
+      "tokens_this_month": 4200000,
+      "owner": "",
+      "review_status": "pending",
+      "evidence_reference": "COST-2026-05-003"
+    },
+    {
+      "department": "Student Services",
+      "bot_id": "student-services",
+      "provider": "openai",
+      "monthly_budget_usd": 900,
+      "spend_to_date_usd": 390,
+      "projected_monthly_spend_usd": 610,
+      "alert_threshold_percent": 80,
+      "hard_stop_percent": 110,
+      "tokens_this_month": 2500000,
+      "owner": "student-services-admin",
+      "review_status": "approved",
+      "evidence_reference": "COST-2026-05-004"
+    }
+  ]
+}
