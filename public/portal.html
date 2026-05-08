@@ -5,111 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Integrated Chatbot Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="/branding.css?bot=institutional-assistant">
   <link rel="stylesheet" href="/assets/app.css">
 </head>
 <body>
-  <main class="min-h-screen portal-shell">
-    <section class="mx-auto grid min-h-screen max-w-7xl grid-cols-1 gap-0 lg:grid-cols-[360px_1fr]">
-      <aside class="sidebar p-6">
-        <div class="mb-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">Institutional AI</p>
-          <h1 class="mt-3 text-3xl font-semibold text-slate-950">Chatbot Portal</h1>
-          <p class="mt-3 text-sm leading-6 text-slate-600">Multi-provider chatbot operations with RAG, prompt governance, branding, RBAC, MFA, analytics, and audit evidence.</p>
+  <main class="portal-app">
+    <aside class="app-sidebar" aria-label="Primary navigation">
+      <div class="brand-row">
+        <div class="brand-mark">AI</div>
+        <div>
+          <p class="eyebrow">Institutional AI</p>
+          <h1>Chatbot Portal</h1>
         </div>
+      </div>
 
-        <div class="space-y-4">
-          <div class="metric-card">
-            <span>Provider Mode</span>
-            <strong id="providerMode">Fallback ready</strong>
-          </div>
-          <div class="metric-card">
-            <span>RAG</span>
-            <strong>Source cited</strong>
-          </div>
-          <div class="metric-card">
-            <span>Security</span>
-            <strong>MFA and RBAC</strong>
-          </div>
+      <nav class="nav-list" aria-label="Workspace">
+        <button class="nav-item active" type="button"><i data-lucide="message-square"></i><span>Chat</span></button>
+        <button class="nav-item" type="button"><i data-lucide="database"></i><span>Knowledge</span></button>
+        <button class="nav-item" type="button"><i data-lucide="file-code-2"></i><span>Prompts</span></button>
+        <button class="nav-item" type="button"><i data-lucide="bar-chart-3"></i><span>Analytics</span></button>
+        <button class="nav-item" type="button"><i data-lucide="shield-check"></i><span>Security</span></button>
+      </nav>
+
+      <div class="sidebar-panel">
+        <div class="panel-heading">
+          <span>Active Bot</span>
+          <strong>Live</strong>
         </div>
-
-        <div class="mt-8 innovation-panel">
-          <p class="text-xs font-semibold uppercase text-slate-500">Innovation Layer</p>
-          <div class="mt-4 space-y-3">
-            <div class="signal-row">
-              <span>Intent Router</span>
-              <strong id="intentSignal">Waiting</strong>
-            </div>
-            <div class="signal-row">
-              <span>Prompt Firewall</span>
-              <strong id="firewallSignal">Normal</strong>
-            </div>
-            <div class="signal-row">
-              <span>Route Plan</span>
-              <strong id="routeSignal">Auto</strong>
-            </div>
-          </div>
+        <p class="bot-name">Academic and IT Support</p>
+        <div class="mini-grid">
+          <div><span>RAG</span><strong id="ragSignal">Ready</strong></div>
+          <div><span>MFA</span><strong>Required</strong></div>
+          <div><span>Audit</span><strong>365d</strong></div>
+          <div><span>Mode</span><strong id="providerMode">Auto</strong></div>
         </div>
+      </div>
 
-        <div class="mt-8 rounded-lg border border-slate-200 bg-white p-4">
-          <p class="text-xs font-semibold uppercase text-slate-500">Admin Controls</p>
-          <div class="mt-3 grid grid-cols-2 gap-2 text-sm">
-            <button class="tool-button">Branding</button>
-            <button class="tool-button">Prompts</button>
-            <button class="tool-button">Knowledge</button>
-            <button class="tool-button">Analytics</button>
-          </div>
+      <div class="sidebar-footer">
+        <button class="secondary-action" type="button"><i data-lucide="settings-2"></i><span>Configure</span></button>
+        <button class="secondary-action" type="button"><i data-lucide="download"></i><span>Export</span></button>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div class="title-block">
+          <p class="eyebrow">Production Console</p>
+          <h2>Secure institutional chatbot</h2>
         </div>
-      </aside>
-
-      <section class="chat-panel">
-        <header class="chat-header">
-          <div>
-            <p class="text-xs font-semibold uppercase text-slate-500">Academic and IT Support Assistant</p>
-            <h2 class="text-xl font-semibold text-slate-950">Secure institutional chatbot</h2>
-          </div>
-          <select id="provider" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm">
+        <div class="topbar-actions">
+          <label class="select-label" for="provider">Provider</label>
+          <select id="provider" class="control-select">
             <option value="">Auto fallback</option>
             <option value="openai">OpenAI</option>
             <option value="gemini">Gemini</option>
             <option value="deepseek">DeepSeek</option>
             <option value="demo">Demo</option>
           </select>
-        </header>
+          <button id="newChat" class="icon-command" type="button" aria-label="New chat"><i data-lucide="plus"></i></button>
+        </div>
+      </header>
 
-        <section class="ops-strip">
-          <div>
-            <span>Evaluation Lab</span>
-            <strong id="evaluationScore">Sample pack ready</strong>
+      <section class="signal-strip" aria-label="Operational status">
+        <div><span>Evaluation</span><strong id="evaluationScore">Loading</strong></div>
+        <div><span>Safety</span><strong id="firewallSignal">Normal</strong></div>
+        <div><span>Intent</span><strong id="intentSignal">Waiting</strong></div>
+        <div><span>Route</span><strong id="routeSignal">Auto</strong></div>
+      </section>
+
+      <div class="workbench">
+        <section class="conversation-panel" aria-label="Conversation">
+          <div class="conversation-toolbar">
+            <div>
+              <span class="status-dot"></span>
+              <strong>Assistant session</strong>
+            </div>
+            <div class="toolbar-meta">
+              <span id="lastProvider">No provider call</span>
+              <span id="latencySignal">0 ms</span>
+            </div>
           </div>
-          <div>
-            <span>Citation Mode</span>
-            <strong>Evidence first</strong>
+
+          <div id="messages" class="messages">
+            <article class="message assistant-message">
+              <div class="message-avatar"><i data-lucide="bot"></i></div>
+              <div class="message-body">
+                <p>Ready for policy, service, academic, IT, and research questions.</p>
+                <div class="quick-prompts" aria-label="Quick prompts">
+                  <button type="button" data-prompt="What is the withdrawal policy deadline and which source supports it?">Policy check</button>
+                  <button type="button" data-prompt="Help troubleshoot a student login issue without asking for credentials.">IT support</button>
+                  <button type="button" data-prompt="Design a mixed-methods study plan with evidence requirements.">Research plan</button>
+                </div>
+              </div>
+            </article>
           </div>
-          <div>
-            <span>Cost Guard</span>
-            <strong>Token aware</strong>
-          </div>
-          <div>
-            <span>Residency</span>
-            <strong>Region tagged</strong>
-          </div>
+
+          <form id="chatForm" class="composer">
+            <div class="composer-box">
+              <textarea id="message" rows="3" placeholder="Ask about a policy, service, course, system, or internal document..." required></textarea>
+              <div class="composer-actions">
+                <p id="status">Ready</p>
+                <button type="submit"><i data-lucide="send-horizontal"></i><span>Send</span></button>
+              </div>
+            </div>
+          </form>
         </section>
 
-        <div id="messages" class="messages">
-          <article class="assistant-message">
-            <p class="font-medium">Welcome. Ask a question and the portal will route it through the configured model gateway, retrieve relevant knowledge-base context, and return citations when available.</p>
-          </article>
-        </div>
+        <aside class="inspector" aria-label="AI operations inspector">
+          <section class="inspector-section">
+            <div class="section-title"><i data-lucide="route"></i><span>Routing</span></div>
+            <div id="routeList" class="route-list">
+              <span>Auto fallback</span>
+            </div>
+          </section>
 
-        <form id="chatForm" class="composer">
-          <textarea id="message" rows="3" placeholder="Ask about a policy, service, course, system, or internal document..." required></textarea>
-          <div class="flex items-center justify-between gap-3">
-            <p id="status" class="text-sm text-slate-500">Ready</p>
-            <button type="submit">Send</button>
-          </div>
-        </form>
-      </section>
+          <section class="inspector-section">
+            <div class="section-title"><i data-lucide="shield-alert"></i><span>Safety</span></div>
+            <div class="kv-list">
+              <div><span>Firewall</span><strong id="firewallDetail">Allowed</strong></div>
+              <div><span>Risk</span><strong id="riskDetail">Normal</strong></div>
+            </div>
+          </section>
+
+          <section class="inspector-section">
+            <div class="section-title"><i data-lucide="book-open-check"></i><span>Evidence</span></div>
+            <div class="kv-list">
+              <div><span>Citations</span><strong id="evidenceSignal">0</strong></div>
+              <div><span>Grounding</span><strong>Required</strong></div>
+            </div>
+          </section>
+
+          <section class="inspector-section">
+            <div class="section-title"><i data-lucide="gauge"></i><span>Usage</span></div>
+            <div class="kv-list">
+              <div><span>Tokens</span><strong id="tokenSignal">0 / 0</strong></div>
+              <div><span>Cost</span><strong id="costSignal">$0.0000</strong></div>
+            </div>
+          </section>
+
+          <section class="inspector-section">
+            <div class="section-title"><i data-lucide="activity"></i><span>Activity</span></div>
+            <ol id="activityLog" class="activity-log">
+              <li>Session initialized</li>
+            </ol>
+          </section>
+        </aside>
+      </div>
     </section>
   </main>
   <script src="/assets/app.js"></script>
