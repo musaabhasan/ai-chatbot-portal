@@ -20,7 +20,8 @@
     }
   },
   "scripts": {
-    "lint": "php scripts/lint.php"
+    "lint": "php scripts/lint.php",
+    "redaction-residual-audit": "php scripts/redaction-residual-audit.php"
   },
   "config": {
     "sort-packages": true,

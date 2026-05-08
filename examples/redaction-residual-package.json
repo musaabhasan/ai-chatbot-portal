@@ -1,0 +1,30 @@
+{
+  "package_version": "1.0",
+  "exported_at": "2026-05-08T12:00:00Z",
+  "conversation": {
+    "conversation_id": "conv-2026-05-08-001",
+    "user_email": "[REDACTED]",
+    "bot_id": "student-services-advisor"
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "My email is learner@example.edu and my student id is STU-449912. Can you check the appeal status?"
+    },
+    {
+      "role": "assistant",
+      "content": "I cannot make a final decision. Please contact the registrar."
+    }
+  ],
+  "audit_events": [
+    {
+      "event": "provider_call",
+      "authorization_header": "Bearer mcpdemoauthorizationtoken1234567890",
+      "provider_request_id": "req_12345"
+    }
+  ],
+  "integrity": {
+    "hash_algorithm": "sha256",
+    "package_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}
