@@ -14,6 +14,7 @@ The portal assumes chatbots can access sensitive institutional data, so it treat
 | Data leakage through RAG | Source provenance, bot-specific document boundaries, retention policy |
 | Compliance gaps | 12-month administrative audit retention and configurable chat retention |
 | Unsafe answers | Moderation flags, blocked categories, reviewer queue extension point |
+| Evidence leakage during review | Redacted conversation audit packages with integrity hashes and restricted storage |
 
 ## Roles
 
@@ -45,3 +46,7 @@ Log enough for accountability, but avoid storing unnecessary sensitive content:
 - keep audit logs append-only,
 - apply retention jobs to chat transcripts and uploaded documents,
 - protect logs with the same access controls as production data.
+
+## Evidence Export
+
+Conversation audit exports should be redacted before they leave the production database boundary. Export packages should include enough metadata to reconstruct the incident, but should remove provider keys, authorization tokens, email addresses, and long secret-like values. Record the export package hash in the case record so later reviewers can detect evidence changes.

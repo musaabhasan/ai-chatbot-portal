@@ -28,6 +28,16 @@
 
 1. Roll back to the previous approved prompt version.
 2. Preserve affected conversation ids.
-3. Export audit logs for prompt changes.
-4. Add test cases to the prompt evaluation set.
-5. Approve a corrected prompt version through the normal workflow.
+3. Export a redacted conversation audit package for affected conversations.
+4. Export audit logs for prompt changes.
+5. Record the package SHA-256 hash in the incident record.
+6. Add test cases to the prompt evaluation set.
+7. Approve a corrected prompt version through the normal workflow.
+
+## Conversation Evidence Export
+
+1. Identify the conversation, message, provider usage, citation, and audit-log rows in scope.
+2. Build the package with `ConversationAuditExporter`.
+3. Confirm package verification passes before sharing.
+4. Store the package in restricted evidence storage.
+5. Keep reviewer notes and remediation decisions separate from the original package.

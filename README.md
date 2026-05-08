@@ -16,6 +16,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Administration | RBAC for super admins, department admins, reviewers, and end users with scoped permissions |
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
+| Audit export | Redacted evidence packages with package-level SHA-256 integrity checks for conversation review |
 | Governance | Interaction logging, cost tracking, token analytics, provider uptime, moderation flags, data residency controls, and configurable retention windows |
 | Operations | Docker Compose stack, health endpoint, CI syntax validation, migration SQL, and deployment hardening guidance |
 
@@ -110,6 +111,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [RAG Pipeline](docs/rag-pipeline.md)
 - [Innovation Layer](docs/innovation-layer.md)
 - [Evaluation Lab](docs/evaluation-lab.md)
+- [Conversation Audit Export](docs/conversation-audit-export.md)
 - [API Reference](docs/api.md)
 - [Deployment Guide](docs/deployment.md)
 - [Operations Runbook](docs/operations-runbook.md)
