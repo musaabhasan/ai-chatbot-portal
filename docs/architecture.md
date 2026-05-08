@@ -9,10 +9,11 @@ The portal is organized as a modular PHP application with a front controller, se
 | HTTP | Route requests, apply secure headers, validate CSRF tokens, serialize JSON responses |
 | Security | Sessions, RBAC, MFA, rate limits, credential encryption, audit logs |
 | Admin | Provider settings, prompt versions, bot instances, branding profiles |
-| Chat | Conversation orchestration, prompt assembly, RAG retrieval, provider fallback |
+| Chat | Conversation orchestration, intent routing, prompt firewall checks, prompt assembly, RAG retrieval, provider fallback |
 | AI providers | OpenAI, Gemini, and DeepSeek adapters behind one interface |
 | RAG | Document extraction, chunking, embedding, vector retrieval, and citations |
 | Analytics | Token usage, cost, latency, error, and uptime records |
+| Evaluation | Scenario packs for prompt, RAG, refusal, citation, and regression checks |
 
 ## Provider Routing
 
@@ -24,6 +25,8 @@ The provider router receives a `BotRequest` and resolves the provider order from
 4. platform default.
 
 Each provider attempt is timed and recorded. Failed providers are skipped while their circuit is open. If all providers fail, the portal returns a controlled error with a request id and writes the full failure chain to `provider_usage`.
+
+The intent router can reorder providers before fallback begins. For example, a technical build request can prefer DeepSeek, while a policy-sensitive academic question can prefer OpenAI with lower temperature and required retrieval context.
 
 ## Bot Instance Boundary
 

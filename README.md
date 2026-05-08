@@ -7,9 +7,12 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Area | Capability |
 | --- | --- |
 | Multi-LLM gateway | Route requests to OpenAI, Gemini, or DeepSeek with provider health checks, fallback, timeout budgets, and per-group defaults |
+| Intent-aware routing | Classify user intent and adapt provider order, sampling settings, RAG use, and output budget per request |
+| Prompt firewall | Detect prompt extraction, secret requests, data exfiltration attempts, and unsafe administrative actions before provider calls |
 | Chat experience | Responsive Tailwind-based chat UI, markdown-safe rendering, source citations, latency display, session history, and model transparency |
 | RAG knowledge base | Upload TXT, PDF, and DOCX sources, chunk content, create embeddings, store vectors in MySQL, retrieve cited context, and track document provenance |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
+| Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
 | Administration | RBAC for super admins, department admins, reviewers, and end users with scoped permissions |
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
@@ -61,6 +64,7 @@ Run local checks:
 
 ```bash
 php scripts/lint.php
+php scripts/run-evaluation.php
 ```
 
 ## Configuration Highlights
@@ -103,6 +107,8 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Architecture](docs/architecture.md)
 - [Security Model](docs/security-model.md)
 - [RAG Pipeline](docs/rag-pipeline.md)
+- [Innovation Layer](docs/innovation-layer.md)
+- [Evaluation Lab](docs/evaluation-lab.md)
 - [API Reference](docs/api.md)
 - [Deployment Guide](docs/deployment.md)
 - [Operations Runbook](docs/operations-runbook.md)
