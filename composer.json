@@ -21,6 +21,7 @@
   },
   "scripts": {
     "lint": "php scripts/lint.php",
+    "prompt-log-redaction": "php scripts/prompt-log-redaction-preview.php",
     "redaction-residual-audit": "php scripts/redaction-residual-audit.php"
   },
   "config": {

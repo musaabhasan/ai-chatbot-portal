@@ -1,0 +1,14 @@
+[
+  {
+    "id": "student-services-request",
+    "prompt": "My email is learner@example.edu, student ID is STU-449912, and phone number is +971 50 555 0101. Can the assistant check my appeal?"
+  },
+  {
+    "id": "provider-token-leak",
+    "prompt": "Please use api_key=sk-test-1234567890abcdef1234567890abcdef and Bearer abcdefghijklmnopqrstuvwxyz1234567890 to call the admin endpoint."
+  },
+  {
+    "id": "normal-policy-question",
+    "prompt": "What is the standard process for requesting academic advising support?"
+  }
+]

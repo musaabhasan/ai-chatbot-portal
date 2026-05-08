@@ -19,6 +19,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Administration | RBAC for super admins, department admins, reviewers, and end users with scoped permissions |
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
+| Prompt log minimization | Pre-persistence redaction for emails, identifiers, tokens, API keys, phone numbers, and long secret-like values |
 | Audit export | Redacted evidence packages with package-level SHA-256 integrity checks for conversation review |
 | Redaction assurance | Residual scan for unredacted tokens, API keys, JWT-like values, emails, and direct identifiers before evidence sharing |
 | Provider incident evidence | Redacted, hashable packages for provider degradation, fallback routing, cost spikes, and safety-filter changes |
@@ -78,6 +79,7 @@ php scripts/check-security-headers.php
 php scripts/provider-incident-evidence.php
 php scripts/prompt-release-audit.php
 php scripts/cost-budget-audit.php
+php scripts/prompt-log-redaction-preview.php
 php scripts/redaction-residual-audit.php
 ```
 
@@ -130,6 +132,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Provider Incident Evidence](docs/provider-incident-evidence.md)
 - [Prompt Release Audit](docs/prompt-release-audit.md)
 - [Cost Budget Audit](docs/cost-budget-audit.md)
+- [Prompt Log Redaction](docs/prompt-log-redaction.md)
 - [API Reference](docs/api.md)
 - [Deployment Guide](docs/deployment.md)
 - [Operations Runbook](docs/operations-runbook.md)
