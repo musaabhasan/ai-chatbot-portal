@@ -13,6 +13,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | RAG knowledge base | Upload TXT, PDF, and DOCX sources, chunk content, create embeddings, store vectors in MySQL, retrieve cited context, and track document provenance |
 | RAG freshness audit | Review source ownership, review dates, citation requirements, and stale indexes before release |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
+| Prompt release audit | Gates prompt and persona releases for approval, evaluation, red-team, rollback, RAG freshness, tool-policy, and human-review evidence |
 | Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
 | Evaluation coverage gate | Audits scenario packs for required safety, citation, policy, credential, and research coverage before release |
 | Administration | RBAC for super admins, department admins, reviewers, and end users with scoped permissions |
@@ -73,6 +74,7 @@ php scripts/evaluation-coverage-gate.php
 php scripts/rag-freshness-audit.php
 php scripts/check-security-headers.php
 php scripts/provider-incident-evidence.php
+php scripts/prompt-release-audit.php
 ```
 
 ## Configuration Highlights
@@ -121,6 +123,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
 - [Conversation Audit Export](docs/conversation-audit-export.md)
 - [Provider Incident Evidence](docs/provider-incident-evidence.md)
+- [Prompt Release Audit](docs/prompt-release-audit.md)
 - [API Reference](docs/api.md)
 - [Deployment Guide](docs/deployment.md)
 - [Operations Runbook](docs/operations-runbook.md)

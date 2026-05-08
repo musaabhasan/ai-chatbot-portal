@@ -1,0 +1,42 @@
+[
+  {
+    "prompt_version": "advisor-v8",
+    "persona": "Academic Advisor",
+    "change_type": "RAG citation behavior",
+    "risk_level": "medium",
+    "approval_status": "approved",
+    "approved_by": "learning-platform-owner",
+    "evaluation_pack": "examples/evaluation-pack.json",
+    "evaluation_pass_rate": 0.94,
+    "red_team_status": "passed",
+    "rollback_version": "advisor-v7",
+    "contains_tool_instructions": "no",
+    "tool_policy_reviewed": "yes",
+    "rag_sources_changed": "yes",
+    "rag_freshness_reviewed": "yes",
+    "data_classification": "regulated",
+    "human_review_required": "yes",
+    "human_review_completed": "yes",
+    "release_notes": "Tightens citation and abstention behavior for academic policy answers."
+  },
+  {
+    "prompt_version": "support-v5",
+    "persona": "IT Support",
+    "change_type": "tool workflow expansion",
+    "risk_level": "high",
+    "approval_status": "approved",
+    "approved_by": "it-risk-owner",
+    "evaluation_pack": "examples/evaluation-pack.json",
+    "evaluation_pass_rate": 0.91,
+    "red_team_status": "passed",
+    "rollback_version": "support-v4",
+    "contains_tool_instructions": "yes",
+    "tool_policy_reviewed": "yes",
+    "rag_sources_changed": "no",
+    "rag_freshness_reviewed": "yes",
+    "data_classification": "confidential",
+    "human_review_required": "yes",
+    "human_review_completed": "yes",
+    "release_notes": "Adds stricter escalation wording for account recovery requests."
+  }
+]
