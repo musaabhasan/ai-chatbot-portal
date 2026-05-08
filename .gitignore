@@ -1,0 +1,12 @@
+.env
+/vendor/
+/node_modules/
+/storage/logs/*.log
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+/storage/cache/*
+/.phpunit.cache/
+/.idea/
+/.vscode/
+*.sqlite
+*.tmp

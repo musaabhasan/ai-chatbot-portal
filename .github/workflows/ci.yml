@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: curl, json, mbstring, pdo, pdo_mysql, sodium
+          coverage: none
+      - name: Validate composer metadata
+        run: composer validate --strict --no-check-lock
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Lint PHP files
+        run: php scripts/lint.php

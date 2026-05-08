@@ -1,0 +1,29 @@
+{
+  "name": "musaabhasan/ai-chatbot-portal",
+  "description": "Secure multi-LLM institutional chatbot portal with RAG, prompt versioning, RBAC, dynamic branding, and analytics.",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*",
+    "ext-sodium": "*",
+    "phpoffice/phpword": "^1.3",
+    "smalot/pdfparser": "^2.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "ChatbotPortal\\": "src/"
+    }
+  },
+  "scripts": {
+    "lint": "php scripts/lint.php"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {}
+  }
+}
