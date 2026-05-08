@@ -1,0 +1,38 @@
+{
+  "bots": [
+    {
+      "bot_id": "academic-advisor",
+      "department": "Academic Affairs",
+      "owner": "student-services-owner",
+      "primary_provider": "openai",
+      "fallback_providers": ["gemini", "deepseek"],
+      "health_check_status": "passing",
+      "last_failover_tested_at": "2026-04-20",
+      "timeout_budget_ms": 12000,
+      "retry_limit": 2,
+      "data_residency_equivalent": true,
+      "safety_policy_equivalent": true,
+      "logging_enabled": true,
+      "cost_budget_link": "budget-review-2026-04",
+      "fallback_runbook": "ops-runbook-provider-failover",
+      "evidence_reference": "failover-test-academic-advisor-2026-04"
+    },
+    {
+      "bot_id": "it-support",
+      "department": "IT",
+      "owner": "",
+      "primary_provider": "gemini",
+      "fallback_providers": [],
+      "health_check_status": "degraded",
+      "last_failover_tested_at": "2025-11-01",
+      "timeout_budget_ms": 45000,
+      "retry_limit": 5,
+      "data_residency_equivalent": false,
+      "safety_policy_equivalent": false,
+      "logging_enabled": false,
+      "cost_budget_link": "",
+      "fallback_runbook": "",
+      "evidence_reference": ""
+    }
+  ]
+}
