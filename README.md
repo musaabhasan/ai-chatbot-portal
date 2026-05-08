@@ -65,6 +65,7 @@ Run local checks:
 ```bash
 php scripts/lint.php
 php scripts/run-evaluation.php
+php scripts/check-security-headers.php
 ```
 
 ## Configuration Highlights
