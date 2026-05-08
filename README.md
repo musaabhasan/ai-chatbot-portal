@@ -19,6 +19,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
 | Audit export | Redacted evidence packages with package-level SHA-256 integrity checks for conversation review |
+| Provider incident evidence | Redacted, hashable packages for provider degradation, fallback routing, cost spikes, and safety-filter changes |
 | Governance | Interaction logging, cost tracking, token analytics, provider uptime, moderation flags, data residency controls, and configurable retention windows |
 | Operations | Docker Compose stack, health endpoint, CI syntax validation, migration SQL, and deployment hardening guidance |
 
@@ -71,6 +72,7 @@ php scripts/run-evaluation.php
 php scripts/evaluation-coverage-gate.php
 php scripts/rag-freshness-audit.php
 php scripts/check-security-headers.php
+php scripts/provider-incident-evidence.php
 ```
 
 ## Configuration Highlights
@@ -118,6 +120,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Evaluation Lab](docs/evaluation-lab.md)
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
 - [Conversation Audit Export](docs/conversation-audit-export.md)
+- [Provider Incident Evidence](docs/provider-incident-evidence.md)
 - [API Reference](docs/api.md)
 - [Deployment Guide](docs/deployment.md)
 - [Operations Runbook](docs/operations-runbook.md)
