@@ -7,6 +7,7 @@ namespace ChatbotPortal\AI;
 use ChatbotPortal\Analytics\UsageRecorder;
 use ChatbotPortal\Rag\Retriever;
 use ChatbotPortal\Security\PromptFirewall;
+use ChatbotPortal\Security\PromptLogRedactor;
 use ChatbotPortal\Support\Env;
 use ChatbotPortal\Support\Uuid;
 use PDO;
@@ -19,7 +20,8 @@ final class ChatOrchestrator
         private readonly Retriever $retriever,
         private readonly UsageRecorder $usageRecorder,
         private readonly IntentClassifier $intentClassifier,
-        private readonly PromptFirewall $promptFirewall
+        private readonly PromptFirewall $promptFirewall,
+        private readonly ?PromptLogRedactor $promptLogRedactor = null
     ) {
     }
 
@@ -162,7 +164,7 @@ final class ChatOrchestrator
         $insert->execute([
             'conversation_id' => $conversationId,
             'role' => 'user',
-            'content' => $message,
+            'content' => $this->redactForLog($message),
             'provider' => null,
             'model' => null,
             'input_tokens' => 0,
@@ -173,7 +175,7 @@ final class ChatOrchestrator
         $insert->execute([
             'conversation_id' => $conversationId,
             'role' => 'assistant',
-            'content' => $result->content,
+            'content' => $this->redactForLog($result->content),
             'provider' => $result->provider,
             'model' => $result->model,
             'input_tokens' => $result->inputTokens,
@@ -181,5 +183,10 @@ final class ChatOrchestrator
             'latency_ms' => $result->latencyMs,
             'citations' => json_encode($context, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
         ]);
+    }
+
+    private function redactForLog(string $content): string
+    {
+        return ($this->promptLogRedactor ?? new PromptLogRedactor())->redact($content);
     }
 }
