@@ -9,7 +9,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Multi-LLM gateway | Route requests to OpenAI, Gemini, or DeepSeek with provider health checks, fallback, timeout budgets, and per-group defaults |
 | Intent-aware routing | Classify user intent and adapt provider order, sampling settings, RAG use, and output budget per request |
 | Prompt firewall | Detect prompt extraction, secret requests, data exfiltration attempts, and unsafe administrative actions before provider calls |
-| Chat experience | Responsive Tailwind-based chat UI, markdown-safe rendering, source citations, latency display, session history, and model transparency |
+| Chat experience | Modern operations-console UI with compact navigation, quick prompts, live safety/routing signals, usage telemetry, and source citations |
 | RAG knowledge base | Upload TXT, PDF, and DOCX sources, chunk content, create embeddings, store vectors in MySQL, retrieve cited context, and track document provenance |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
 | Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
