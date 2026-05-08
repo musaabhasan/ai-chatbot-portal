@@ -46,9 +46,42 @@ body {
   font-weight: 600;
 }
 
+.innovation-panel {
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(240, 253, 250, 0.92), rgba(255, 255, 255, 0.95));
+  padding: 16px;
+}
+
+.signal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
+.signal-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.signal-row span {
+  color: rgb(71 85 105);
+}
+
+.signal-row strong {
+  max-width: 150px;
+  color: var(--brand-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .chat-panel {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   min-height: 100vh;
   background: rgba(255, 255, 255, 0.72);
 }
@@ -60,6 +93,34 @@ body {
   gap: 16px;
   border-bottom: 1px solid rgb(226 232 240);
   padding: 22px 28px;
+}
+
+.ops-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  border-bottom: 1px solid rgb(226 232 240);
+  background: rgb(226 232 240);
+}
+
+.ops-strip div {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 14px 18px;
+}
+
+.ops-strip span {
+  display: block;
+  color: rgb(100 116 139);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ops-strip strong {
+  display: block;
+  margin-top: 4px;
+  color: rgb(15 23 42);
+  font-size: 14px;
 }
 
 .messages {
@@ -118,4 +179,31 @@ body {
   color: white;
   font-weight: 700;
   padding: 10px 18px;
+}
+
+.message-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.message-meta span {
+  border: 1px solid rgb(226 232 240);
+  border-radius: 999px;
+  background: rgb(248 250 252);
+  padding: 4px 8px;
+  color: rgb(71 85 105);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .ops-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .chat-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

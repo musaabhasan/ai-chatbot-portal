@@ -6,6 +6,7 @@ namespace ChatbotPortal\AI;
 
 use ChatbotPortal\Analytics\UsageRecorder;
 use ChatbotPortal\Rag\Retriever;
+use ChatbotPortal\Security\PromptFirewall;
 use ChatbotPortal\Support\Env;
 use ChatbotPortal\Support\Uuid;
 use PDO;
@@ -16,7 +17,9 @@ final class ChatOrchestrator
         private readonly PDO $db,
         private readonly ProviderRouter $providers,
         private readonly Retriever $retriever,
-        private readonly UsageRecorder $usageRecorder
+        private readonly UsageRecorder $usageRecorder,
+        private readonly IntentClassifier $intentClassifier,
+        private readonly PromptFirewall $promptFirewall
     ) {
     }
 
@@ -24,10 +27,38 @@ final class ChatOrchestrator
     {
         $bot = $this->loadBot($botSlug);
         $conversationId ??= Uuid::v4();
-        $context = $bot['rag_enabled'] ? $this->retriever->retrieve((int) $bot['id'], $message) : [];
+        $intent = $this->intentClassifier->classify($message);
+        $firewall = $this->promptFirewall->inspect($message);
+
+        if (!$firewall->allowed) {
+            return [
+                'conversation_id' => $conversationId,
+                'provider' => 'policy-firewall',
+                'model' => 'deterministic-guardrail',
+                'answer' => $firewall->message,
+                'citations' => [],
+                'usage' => [
+                    'input_tokens' => 0,
+                    'output_tokens' => 0,
+                    'latency_ms' => 0,
+                    'cost_usd' => 0,
+                ],
+                'intelligence' => [
+                    'intent' => $intent->toArray(),
+                    'firewall' => $firewall->toArray(),
+                    'route' => ['policy-firewall'],
+                ],
+            ];
+        }
+
+        $context = $bot['rag_enabled'] && $intent->ragRequired ? $this->retriever->retrieve((int) $bot['id'], $message) : [];
         $prompt = $this->systemPrompt($bot, $context);
         $providerOrder = $requestedProvider !== null ? [$requestedProvider] : json_decode((string) $bot['fallback_providers'], true);
         $providerOrder = is_array($providerOrder) ? $providerOrder : [$bot['default_provider']];
+        if ($requestedProvider === null && $intent->recommendedProvider !== null) {
+            array_unshift($providerOrder, $intent->recommendedProvider);
+            $providerOrder = array_values(array_unique($providerOrder));
+        }
         if (Env::get('APP_ENV', 'local') !== 'production') {
             $providerOrder[] = 'demo';
         }
@@ -38,9 +69,9 @@ final class ChatOrchestrator
         ];
 
         $result = $this->providers->chat($providerOrder, $messages, [
-            'temperature' => (float) $bot['temperature'],
+            'temperature' => min((float) $bot['temperature'], $intent->temperature),
             'top_p' => (float) $bot['top_p'],
-            'max_output_tokens' => (int) $bot['max_output_tokens'],
+            'max_output_tokens' => min((int) $bot['max_output_tokens'], $intent->maxOutputTokens),
         ]);
 
         $this->persistConversation($conversationId, (int) $bot['id'], $message, $result, $context);
@@ -71,6 +102,11 @@ final class ChatOrchestrator
                 'output_tokens' => $result->outputTokens,
                 'latency_ms' => $result->latencyMs,
                 'cost_usd' => $result->costUsd,
+            ],
+            'intelligence' => [
+                'intent' => $intent->toArray(),
+                'firewall' => $firewall->toArray(),
+                'route' => $providerOrder,
             ],
         ];
     }

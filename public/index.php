@@ -7,14 +7,17 @@ use ChatbotPortal\AI\ChatOrchestrator;
 use ChatbotPortal\AI\DeepSeekClient;
 use ChatbotPortal\AI\DemoClient;
 use ChatbotPortal\AI\GeminiClient;
+use ChatbotPortal\AI\IntentClassifier;
 use ChatbotPortal\AI\OpenAIClient;
 use ChatbotPortal\AI\ProviderRouter;
 use ChatbotPortal\Analytics\UsageRecorder;
+use ChatbotPortal\Evaluation\EvaluationRunner;
 use ChatbotPortal\Http\Router;
 use ChatbotPortal\Http\SecurityHeaders;
 use ChatbotPortal\Infrastructure\Connection;
 use ChatbotPortal\Rag\MySqlVectorStore;
 use ChatbotPortal\Rag\Retriever;
+use ChatbotPortal\Security\PromptFirewall;
 use ChatbotPortal\Support\Env;
 use ChatbotPortal\Support\JsonResponse;
 use ChatbotPortal\Support\Uuid;
@@ -81,7 +84,7 @@ $router->post('/api/chat', static function (): void {
         $db = Connection::make();
         $providers = providerRouter();
         $retriever = new Retriever($providers, new MySqlVectorStore($db));
-        $orchestrator = new ChatOrchestrator($db, $providers, $retriever, new UsageRecorder($db));
+        $orchestrator = new ChatOrchestrator($db, $providers, $retriever, new UsageRecorder($db), new IntentClassifier(), new PromptFirewall());
         JsonResponse::send($orchestrator->answer(
             (string) ($payload['bot'] ?? 'institutional-assistant'),
             isset($payload['conversation_id']) ? (string) $payload['conversation_id'] : null,
@@ -96,6 +99,15 @@ $router->post('/api/chat', static function (): void {
                 'request_id' => Uuid::v4(),
             ],
         ], 500);
+    }
+});
+
+$router->get('/api/evaluation/sample', static function (): void {
+    try {
+        $path = dirname(__DIR__) . '/examples/evaluation-pack.json';
+        JsonResponse::send((new EvaluationRunner())->runFile($path));
+    } catch (Throwable $exception) {
+        JsonResponse::send(['error' => ['code' => 'evaluation_failed', 'message' => $exception->getMessage()]], 500);
     }
 });
 

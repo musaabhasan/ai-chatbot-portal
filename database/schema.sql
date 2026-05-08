@@ -201,6 +201,51 @@ CREATE TABLE rate_limits (
     UNIQUE KEY rate_limit_window_unique (limit_key, window_start)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE evaluation_scenarios (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    bot_id BIGINT UNSIGNED NULL,
+    scenario_key VARCHAR(120) NOT NULL UNIQUE,
+    persona VARCHAR(120) NOT NULL,
+    input_prompt TEXT NOT NULL,
+    expected_behavior TEXT NOT NULL,
+    risk_tags JSON NOT NULL,
+    minimum_evidence JSON NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (bot_id) REFERENCES bot_instances(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE evaluation_runs (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    bot_id BIGINT UNSIGNED NOT NULL,
+    prompt_template_id BIGINT UNSIGNED NULL,
+    provider VARCHAR(40) NOT NULL,
+    model VARCHAR(120) NOT NULL,
+    score DECIMAL(5,4) NOT NULL DEFAULT 0,
+    passed INT NOT NULL DEFAULT 0,
+    failed INT NOT NULL DEFAULT 0,
+    report_json JSON NOT NULL,
+    created_by BIGINT UNSIGNED NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (bot_id) REFERENCES bot_instances(id) ON DELETE CASCADE,
+    FOREIGN KEY (prompt_template_id) REFERENCES prompt_templates(id) ON DELETE SET NULL,
+    FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE conversation_feedback (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    conversation_id CHAR(36) NOT NULL,
+    message_id BIGINT UNSIGNED NULL,
+    rating TINYINT NOT NULL,
+    feedback_type VARCHAR(80) NOT NULL,
+    notes TEXT NULL,
+    created_by BIGINT UNSIGNED NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (conversation_id) REFERENCES conversations(id) ON DELETE CASCADE,
+    FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE SET NULL,
+    FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 INSERT INTO departments (name, code) VALUES ('Default Department', 'default');
 
 INSERT INTO bot_instances (
