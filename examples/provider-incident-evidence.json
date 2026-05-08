@@ -1,0 +1,59 @@
+{
+  "incident": {
+    "incident_id": "INC-LLM-2026-0007",
+    "severity": "high",
+    "title": "Primary provider latency spike triggered fallback routing",
+    "detected_at": "2026-05-08T10:14:00Z",
+    "detected_by": "provider health monitor",
+    "bot_id": "student-support-bot",
+    "risk_owner": "AI Governance Lead",
+    "summary": "Primary model latency exceeded policy threshold and requests were routed to fallback provider for 18 minutes."
+  },
+  "provider_events": [
+    {
+      "occurred_at": "2026-05-08T10:12:00Z",
+      "provider": "openai",
+      "event_type": "latency_degradation",
+      "model": "gpt-4.1-mini",
+      "evidence": "p95 latency 18.2s for 5 consecutive minutes"
+    },
+    {
+      "occurred_at": "2026-05-08T10:16:00Z",
+      "provider": "gemini",
+      "event_type": "fallback_activated",
+      "model": "gemini-1.5-flash",
+      "evidence": "fallback route selected by health check"
+    },
+    {
+      "occurred_at": "2026-05-08T10:18:00Z",
+      "provider": "gemini",
+      "event_type": "cost_spike",
+      "model": "gemini-1.5-flash",
+      "evidence": "token spend 2.4x normal baseline during fallback"
+    }
+  ],
+  "routing_decisions": [
+    {
+      "occurred_at": "2026-05-08T10:16:04Z",
+      "provider": "gemini",
+      "decision": "fallback_selected",
+      "provider_order": "openai,gemini,deepseek",
+      "reason": "primary provider latency above threshold",
+      "authorization": "Bearer demo-token-value-that-should-be-redacted"
+    }
+  ],
+  "audit_events": [
+    {
+      "created_at": "2026-05-08T10:20:00Z",
+      "action": "incident_opened",
+      "actor": "ai-ops@example.edu",
+      "metadata": "provider_key=demo-provider-secret-value"
+    },
+    {
+      "created_at": "2026-05-08T10:34:00Z",
+      "action": "primary_route_restored",
+      "actor": "ai-ops@example.edu",
+      "metadata": "latency below threshold for 10 minutes"
+    }
+  ]
+}
