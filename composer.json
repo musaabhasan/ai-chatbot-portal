@@ -25,7 +25,8 @@
     "provider-failover-readiness": "php scripts/provider-failover-readiness.php",
     "rag-citation-integrity-audit": "php scripts/rag-citation-integrity-audit.php",
     "prompt-log-redaction": "php scripts/prompt-log-redaction-preview.php",
-    "redaction-residual-audit": "php scripts/redaction-residual-audit.php"
+    "redaction-residual-audit": "php scripts/redaction-residual-audit.php",
+    "tool-invocation-policy-audit": "php scripts/tool-invocation-policy-audit.php"
   },
   "config": {
     "sort-packages": true,
