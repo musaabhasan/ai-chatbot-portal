@@ -11,6 +11,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Prompt firewall | Detect prompt extraction, secret requests, data exfiltration attempts, and unsafe administrative actions before provider calls |
 | Chat experience | Modern operations-console UI with compact navigation, quick prompts, live safety/routing signals, usage telemetry, and source citations |
 | RAG knowledge base | Upload TXT, PDF, and DOCX sources, chunk content, create embeddings, store vectors in MySQL, retrieve cited context, and track document provenance |
+| Knowledge-base source license audit | Executable review of source reuse rights, citation approval, redistribution, provider-training limits, personal-data approval, access scope, and review freshness |
 | RAG freshness audit | Review source ownership, review dates, citation requirements, and stale indexes before release |
 | Knowledge-base access scope audit | Gate RAG collections by bot, department, classification, retrieval scope, citation requirement, personal-data approval, and review date |
 | RAG citation integrity audit | Check whether answer claims cite retrieved, approved, current, high-score, and citation-allowed sources |
@@ -88,6 +89,7 @@ php scripts/run-evaluation.php
 php scripts/evaluation-coverage-gate.php
 php scripts/prompt-injection-regression-audit.php
 php scripts/answer-provenance-drift-audit.php
+php scripts/kb-source-license-audit.php
 php scripts/rag-freshness-audit.php
 php scripts/check-security-headers.php
 php scripts/provider-incident-evidence.php
@@ -145,6 +147,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Architecture](docs/architecture.md)
 - [Security Model](docs/security-model.md)
 - [RAG Pipeline](docs/rag-pipeline.md)
+- [Knowledge-Base Source License Audit](docs/kb-source-license-audit.md)
 - [RAG Freshness Audit](docs/rag-freshness-audit.md)
 - [Knowledge-Base Access Scope Audit](docs/kb-access-scope-audit.md)
 - [RAG Citation Integrity Audit](docs/rag-citation-integrity-audit.md)
