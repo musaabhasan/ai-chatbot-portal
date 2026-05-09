@@ -26,6 +26,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Tool invocation policy audit | Release gate for chatbot tool permissions, high-impact actions, human approval, logging, credential scope, rollback, and emergency stop readiness |
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
+| Conversation retention policy audit | Executable review of prompt, output, RAG, embedding, tool-call, audit-export, redaction, deletion, legal-hold, and provider-training retention controls |
 | Prompt log minimization | Pre-persistence redaction for emails, identifiers, tokens, API keys, phone numbers, and long secret-like values |
 | Audit export | Redacted evidence packages with package-level SHA-256 integrity checks for conversation review |
 | Redaction assurance | Residual scan for unredacted tokens, API keys, JWT-like values, emails, and direct identifiers before evidence sharing |
@@ -93,6 +94,7 @@ php scripts/prompt-release-audit.php
 php scripts/human-review-queue-audit.php
 php scripts/admin-activity-evidence-audit.php
 php scripts/tool-invocation-policy-audit.php
+php scripts/conversation-retention-policy-audit.php
 php scripts/cost-budget-audit.php
 php scripts/prompt-log-redaction-preview.php
 php scripts/redaction-residual-audit.php
@@ -125,6 +127,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - Chat requests are rate-limited by user, IP, provider, and bot instance.
 - Prompt versions are immutable once approved, enabling rollback and post-incident review.
 - Knowledge-base documents keep provenance metadata so generated answers can cite source chunks.
+- Conversation, prompt, output, RAG, embedding, tool-call, and audit-export stores should pass the retention policy audit before production logging is enabled.
 
 ## Core Workflows
 
@@ -151,6 +154,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Human Review Queue Audit](docs/human-review-queue-audit.md)
 - [Admin Activity Evidence Audit](docs/admin-activity-evidence-audit.md)
 - [Tool Invocation Policy Audit](docs/tool-invocation-policy-audit.md)
+- [Conversation Retention Policy Audit](docs/conversation-retention-policy-audit.md)
 - [Conversation Audit Export](docs/conversation-audit-export.md)
 - [Redaction Residual Audit](docs/redaction-residual-audit.md)
 - [Provider Incident Evidence](docs/provider-incident-evidence.md)

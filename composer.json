@@ -21,6 +21,7 @@
   },
   "scripts": {
     "lint": "php scripts/lint.php",
+    "conversation-retention-policy-audit": "php scripts/conversation-retention-policy-audit.php",
     "kb-access-scope-audit": "php scripts/kb-access-scope-audit.php",
     "provider-failover-readiness": "php scripts/provider-failover-readiness.php",
     "prompt-injection-regression-audit": "php scripts/prompt-injection-regression-audit.php",
