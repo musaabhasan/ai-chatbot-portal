@@ -35,6 +35,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Provider incident evidence | Redacted, hashable packages for provider degradation, fallback routing, cost spikes, and safety-filter changes |
 | Provider failover readiness | Pre-release audit for fallback provider order, health checks, timeout/retry limits, residency and safety equivalence, logging, runbook, and evidence |
 | Provider model deprecation readiness | Executable lifecycle audit for retiring models, replacement evidence, fallback testing, prompt and RAG compatibility, safety equivalence, cost impact, and user communication |
+| Model migration canary readiness | Executable rollout audit for limited traffic, shadow evaluation, locked baselines, rollback thresholds, safety and citation regressions, cost deltas, and monitoring ownership |
 | Provider data processing review | Review provider data categories, training use, retention, subprocessors, regions, deletion, assurance evidence, fallback eligibility, and portal configuration controls |
 | Cost budget audit | Department and bot-level cost guardrail for projected spend, hard stops, owner review, and approval evidence |
 | Bot decommissioning | Runbook for retiring chatbot instances while preserving required evidence, removing access, handling RAG sources, revoking credentials, and closing audit records |
@@ -96,6 +97,7 @@ php scripts/check-security-headers.php
 php scripts/provider-incident-evidence.php
 php scripts/provider-failover-readiness.php
 php scripts/provider-model-deprecation-readiness.php
+php scripts/model-migration-canary-readiness.php
 php scripts/prompt-release-audit.php
 php scripts/human-review-queue-audit.php
 php scripts/admin-activity-evidence-audit.php
@@ -168,6 +170,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Provider Incident Evidence](docs/provider-incident-evidence.md)
 - [Provider Failover Readiness](docs/provider-failover-readiness.md)
 - [Provider Model Deprecation Readiness](docs/provider-model-deprecation-readiness.md)
+- [Model Migration Canary Readiness](docs/model-migration-canary-readiness.md)
 - [Provider Data Processing Review](docs/provider-data-processing-review.md)
 - [Prompt Release Audit](docs/prompt-release-audit.md)
 - [Bot Decommissioning Runbook](docs/bot-decommissioning-runbook.md)
