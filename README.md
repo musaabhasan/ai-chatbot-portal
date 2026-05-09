@@ -28,6 +28,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Provider failover readiness | Pre-release audit for fallback provider order, health checks, timeout/retry limits, residency and safety equivalence, logging, runbook, and evidence |
 | Provider data processing review | Review provider data categories, training use, retention, subprocessors, regions, deletion, assurance evidence, fallback eligibility, and portal configuration controls |
 | Cost budget audit | Department and bot-level cost guardrail for projected spend, hard stops, owner review, and approval evidence |
+| Bot decommissioning | Runbook for retiring chatbot instances while preserving required evidence, removing access, handling RAG sources, revoking credentials, and closing audit records |
 | Governance | Interaction logging, cost tracking, token analytics, provider uptime, moderation flags, data residency controls, and configurable retention windows |
 | Operations | Docker Compose stack, health endpoint, CI syntax validation, migration SQL, and deployment hardening guidance |
 
@@ -142,6 +143,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Provider Failover Readiness](docs/provider-failover-readiness.md)
 - [Provider Data Processing Review](docs/provider-data-processing-review.md)
 - [Prompt Release Audit](docs/prompt-release-audit.md)
+- [Bot Decommissioning Runbook](docs/bot-decommissioning-runbook.md)
 - [Cost Budget Audit](docs/cost-budget-audit.md)
 - [Prompt Log Redaction](docs/prompt-log-redaction.md)
 - [API Reference](docs/api.md)
