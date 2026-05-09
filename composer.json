@@ -24,6 +24,7 @@
     "answer-provenance-drift-audit": "php scripts/answer-provenance-drift-audit.php",
     "conversation-retention-policy-audit": "php scripts/conversation-retention-policy-audit.php",
     "kb-access-scope-audit": "php scripts/kb-access-scope-audit.php",
+    "kb-source-license-audit": "php scripts/kb-source-license-audit.php",
     "provider-failover-readiness": "php scripts/provider-failover-readiness.php",
     "prompt-injection-regression-audit": "php scripts/prompt-injection-regression-audit.php",
     "rag-citation-integrity-audit": "php scripts/rag-citation-integrity-audit.php",
