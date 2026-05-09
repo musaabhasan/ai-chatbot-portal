@@ -23,6 +23,7 @@
     "lint": "php scripts/lint.php",
     "kb-access-scope-audit": "php scripts/kb-access-scope-audit.php",
     "provider-failover-readiness": "php scripts/provider-failover-readiness.php",
+    "rag-citation-integrity-audit": "php scripts/rag-citation-integrity-audit.php",
     "prompt-log-redaction": "php scripts/prompt-log-redaction-preview.php",
     "redaction-residual-audit": "php scripts/redaction-residual-audit.php"
   },

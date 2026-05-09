@@ -1,0 +1,64 @@
+{
+  "bot_id": "student-services-assistant",
+  "answers": [
+    {
+      "answer_id": "ANS-001",
+      "user_group": "students",
+      "claims": [
+        {
+          "claim": "Students may withdraw from a course before the published academic deadline.",
+          "citation_ids": ["SRC-001"]
+        },
+        {
+          "claim": "Scholarship appeals require a supporting statement and financial-aid review.",
+          "citation_ids": ["SRC-002"]
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "SRC-001",
+          "title": "Academic withdrawal policy",
+          "score": 0.91,
+          "review_status": "approved",
+          "review_due": "2026-08-01",
+          "data_classification": "regulated",
+          "citation_allowed": true
+        },
+        {
+          "source_id": "SRC-002",
+          "title": "Scholarship appeals notes",
+          "score": 0.68,
+          "review_status": "draft",
+          "review_due": "2026-04-15",
+          "data_classification": "confidential",
+          "citation_allowed": false
+        }
+      ]
+    },
+    {
+      "answer_id": "ANS-002",
+      "user_group": "staff",
+      "claims": [
+        {
+          "claim": "Password reset requests should be routed through the self-service portal.",
+          "citation_ids": []
+        },
+        {
+          "claim": "VPN access is reviewed by the service desk.",
+          "citation_ids": ["SRC-999"]
+        }
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "SRC-010",
+          "title": "Password reset guide",
+          "score": 0.84,
+          "review_status": "approved",
+          "review_due": "2026-06-30",
+          "data_classification": "internal",
+          "citation_allowed": true
+        }
+      ]
+    }
+  ]
+}
