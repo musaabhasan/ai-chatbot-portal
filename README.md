@@ -21,6 +21,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Evaluation coverage gate | Audits scenario packs for required safety, citation, policy, credential, and research coverage before release |
 | Human review queue audit | Release and closure gate for high-risk chatbot conversations, reviewer assignment, SLA, redaction, escalation, evidence hashes, and version context |
 | Administration | RBAC for super admins, department admins, reviewers, and end users with scoped permissions |
+| Admin activity evidence audit | Governance gate for exported prompt, provider, RAG, RBAC, branding, cost, retention, and decommissioning changes |
 | Branding | Dashboard-managed logo, palette, typography, support links, and dynamic CSS variables without code edits |
 | Security | MFA-ready admin accounts, encrypted provider credentials, CSRF protection, rate limiting, audit logging, retention controls, and secure headers |
 | Prompt log minimization | Pre-persistence redaction for emails, identifiers, tokens, API keys, phone numbers, and long secret-like values |
@@ -87,6 +88,7 @@ php scripts/provider-incident-evidence.php
 php scripts/provider-failover-readiness.php
 php scripts/prompt-release-audit.php
 php scripts/human-review-queue-audit.php
+php scripts/admin-activity-evidence-audit.php
 php scripts/cost-budget-audit.php
 php scripts/prompt-log-redaction-preview.php
 php scripts/redaction-residual-audit.php
@@ -142,6 +144,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Evaluation Lab](docs/evaluation-lab.md)
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
 - [Human Review Queue Audit](docs/human-review-queue-audit.md)
+- [Admin Activity Evidence Audit](docs/admin-activity-evidence-audit.md)
 - [Conversation Audit Export](docs/conversation-audit-export.md)
 - [Redaction Residual Audit](docs/redaction-residual-audit.md)
 - [Provider Incident Evidence](docs/provider-incident-evidence.md)

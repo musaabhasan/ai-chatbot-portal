@@ -1,0 +1,61 @@
+{
+  "export_id": "admin-export-2026-05-09",
+  "period_start": "2026-05-01T00:00:00Z",
+  "period_end": "2026-05-09T00:00:00Z",
+  "generated_at": "2026-05-09T01:00:00Z",
+  "generated_by": "security-audit-owner",
+  "package_sha256": "814c1c0257c5658f6f3d8cb090afd57831f9f7eac982597f719a7d6df0764d47",
+  "events": [
+    {
+      "event_id": "adm-2026-0001",
+      "event_type": "prompt_approved",
+      "actor": "department-admin",
+      "actor_role": "department_admin",
+      "target": "academic-advisor:advisor-v12",
+      "occurred_at": "2026-05-02T08:30:00Z",
+      "approval_reference": "APR-2026-044",
+      "reviewer": "learning-platform-owner",
+      "risk_level": "high",
+      "before_hash": "5d41402abc4b2a76b9719d911017c592",
+      "after_hash": "7d793037a0760186574b0282f2f435e7",
+      "evidence_hash": "f1d2d2f924e986ac86fdf7b36c94bcdf32beec15a815c2496b348f3ff47d1929",
+      "contains_sensitive_data": "no",
+      "redaction_status": "not_required",
+      "reason": "Approved citation tightening for academic policy answers."
+    },
+    {
+      "event_id": "adm-2026-0002",
+      "event_type": "provider_enabled",
+      "actor": "super-admin",
+      "actor_role": "super_admin",
+      "target": "provider:gemini",
+      "occurred_at": "2026-05-03T11:12:00Z",
+      "approval_reference": "APR-2026-047",
+      "reviewer": "ai-governance-chair",
+      "risk_level": "high",
+      "before_hash": "9e107d9d372bb6826bd81d3542a419d6",
+      "after_hash": "e4d909c290d0fb1ca068ffaddf22cbd0",
+      "evidence_hash": "6f5902ac237024bdd0c176cb93063dc4f15cfabcb3a8e7bdb175d3c1f4ca04f8",
+      "contains_sensitive_data": "yes",
+      "redaction_status": "completed",
+      "reason": "Enabled fallback provider after data processing and failover review."
+    },
+    {
+      "event_id": "adm-2026-0003",
+      "event_type": "rbac_role_changed",
+      "actor": "security-admin",
+      "actor_role": "super_admin",
+      "target": "user:knowledge-manager",
+      "occurred_at": "2026-05-05T14:40:00Z",
+      "approval_reference": "APR-2026-051",
+      "reviewer": "security-owner",
+      "risk_level": "high",
+      "before_hash": "",
+      "after_hash": "",
+      "evidence_hash": "10b2c3e1f3b51ec3a8b1fbcd6f6b2d5f0fcb6553d0d1e6a4f49f2a67eb7b4e2a",
+      "contains_sensitive_data": "no",
+      "redaction_status": "not_required",
+      "reason": "Granted limited knowledge-base publishing role for approved department scope."
+    }
+  ]
+}
