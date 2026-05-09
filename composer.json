@@ -21,6 +21,7 @@
   },
   "scripts": {
     "lint": "php scripts/lint.php",
+    "answer-provenance-drift-audit": "php scripts/answer-provenance-drift-audit.php",
     "conversation-retention-policy-audit": "php scripts/conversation-retention-policy-audit.php",
     "kb-access-scope-audit": "php scripts/kb-access-scope-audit.php",
     "provider-failover-readiness": "php scripts/provider-failover-readiness.php",

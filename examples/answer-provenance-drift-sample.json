@@ -1,0 +1,101 @@
+{
+  "package_id": "answer-provenance-2026-05",
+  "bot_id": "student-services-assistant",
+  "baseline_run_id": "release-2026-04-20",
+  "current_run_id": "release-2026-05-09",
+  "owner": "RAG Governance",
+  "answers": [
+    {
+      "answer_id": "ANS-PROV-001",
+      "question": "What should a student do before requesting a course withdrawal?",
+      "baseline_sources": [
+        {
+          "source_id": "SRC-WITHDRAWAL-001",
+          "title": "Course withdrawal policy",
+          "score": 0.91,
+          "review_status": "approved",
+          "review_due": "2026-09-01",
+          "data_classification": "regulated",
+          "citation_allowed": true
+        },
+        {
+          "source_id": "SRC-ADVISOR-002",
+          "title": "Academic advisor consultation guide",
+          "score": 0.86,
+          "review_status": "approved",
+          "review_due": "2026-10-15",
+          "data_classification": "internal",
+          "citation_allowed": true
+        }
+      ],
+      "current_sources": [
+        {
+          "source_id": "SRC-WITHDRAWAL-001",
+          "title": "Course withdrawal policy",
+          "score": 0.89,
+          "review_status": "approved",
+          "review_due": "2026-09-01",
+          "data_classification": "regulated",
+          "citation_allowed": true
+        },
+        {
+          "source_id": "SRC-ADVISOR-002",
+          "title": "Academic advisor consultation guide",
+          "score": 0.84,
+          "review_status": "approved",
+          "review_due": "2026-10-15",
+          "data_classification": "internal",
+          "citation_allowed": true
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "CLM-001",
+          "claim": "A student should review the published withdrawal deadline before submitting a request.",
+          "expected_source_ids": ["SRC-WITHDRAWAL-001"],
+          "current_citation_ids": ["SRC-WITHDRAWAL-001"]
+        },
+        {
+          "claim_id": "CLM-002",
+          "claim": "Students should consult their academic advisor when the withdrawal may affect progression.",
+          "expected_source_ids": ["SRC-ADVISOR-002"],
+          "current_citation_ids": ["SRC-ADVISOR-002"]
+        }
+      ]
+    },
+    {
+      "answer_id": "ANS-PROV-002",
+      "question": "How should staff handle a password reset request?",
+      "baseline_sources": [
+        {
+          "source_id": "SRC-IT-RESET-010",
+          "title": "Password reset support process",
+          "score": 0.88,
+          "review_status": "approved",
+          "review_due": "2026-08-30",
+          "data_classification": "internal",
+          "citation_allowed": true
+        }
+      ],
+      "current_sources": [
+        {
+          "source_id": "SRC-IT-RESET-010",
+          "title": "Password reset support process",
+          "score": 0.86,
+          "review_status": "approved",
+          "review_due": "2026-08-30",
+          "data_classification": "internal",
+          "citation_allowed": true
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "CLM-003",
+          "claim": "Password reset requests should be routed through the approved self-service or service desk process.",
+          "expected_source_ids": ["SRC-IT-RESET-010"],
+          "current_citation_ids": ["SRC-IT-RESET-010"]
+        }
+      ]
+    }
+  ]
+}

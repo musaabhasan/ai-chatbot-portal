@@ -14,6 +14,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | RAG freshness audit | Review source ownership, review dates, citation requirements, and stale indexes before release |
 | Knowledge-base access scope audit | Gate RAG collections by bot, department, classification, retrieval scope, citation requirement, personal-data approval, and review date |
 | RAG citation integrity audit | Check whether answer claims cite retrieved, approved, current, high-score, and citation-allowed sources |
+| Answer provenance drift audit | Compare current answer citations against a baseline to detect missing expected sources, stale reviews, retrieval-score drops, and citation-set drift |
 | RAG source retirement | Runbook for retiring, replacing, restricting, re-owning, or quarantining knowledge-base sources while preserving citation and audit history |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
 | Prompt release audit | Gates prompt and persona releases for approval, evaluation, red-team, rollback, RAG freshness, tool-policy, and human-review evidence |
@@ -86,6 +87,7 @@ php scripts/lint.php
 php scripts/run-evaluation.php
 php scripts/evaluation-coverage-gate.php
 php scripts/prompt-injection-regression-audit.php
+php scripts/answer-provenance-drift-audit.php
 php scripts/rag-freshness-audit.php
 php scripts/check-security-headers.php
 php scripts/provider-incident-evidence.php
@@ -146,6 +148,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [RAG Freshness Audit](docs/rag-freshness-audit.md)
 - [Knowledge-Base Access Scope Audit](docs/kb-access-scope-audit.md)
 - [RAG Citation Integrity Audit](docs/rag-citation-integrity-audit.md)
+- [Answer Provenance Drift Audit](docs/answer-provenance-drift-audit.md)
 - [RAG Source Retirement Runbook](docs/rag-source-retirement-runbook.md)
 - [Innovation Layer](docs/innovation-layer.md)
 - [Evaluation Lab](docs/evaluation-lab.md)
