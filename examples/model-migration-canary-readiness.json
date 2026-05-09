@@ -1,0 +1,38 @@
+{
+  "package_id": "model-migration-canary-2026-q2",
+  "owner": "ai-platform-operations",
+  "reviewed_at": "2026-05-06",
+  "evidence_reference": "canary-approval-2026-05",
+  "canaries": [
+    {
+      "bot_id": "academic-advisor",
+      "department": "Academic Affairs",
+      "source_model": "gpt-4.1",
+      "target_model": "gpt-5.1",
+      "owner": "student-services-owner",
+      "monitoring_owner": "ai-ops-duty-lead",
+      "canary_percent": 5,
+      "shadow_evaluation_complete": true,
+      "baseline_locked": true,
+      "evaluation_pack_id": "advisor-rag-safety-regression-2026-05",
+      "evaluation_pass_rate": 0.98,
+      "last_tested_at": "2026-05-04",
+      "safety_regression_threshold": "0 critical findings and no more than 1 medium finding",
+      "citation_regression_threshold": "citation precision delta <= 2%",
+      "tool_policy_regression_threshold": "no unauthorized tool calls",
+      "latency_regression_threshold_ms": "750",
+      "cost_delta_threshold_percent": "15",
+      "automatic_rollback_enabled": true,
+      "rollback_runbook": "ops-runbook-model-canary-rollback",
+      "monitoring_dashboard": "dashboards/chatbot-canary-academic-advisor",
+      "user_impact_plan": "support-brief-advisor-model-migration",
+      "cost_owner_approved": true,
+      "safety_monitoring_enabled": true,
+      "citation_monitoring_enabled": true,
+      "tool_call_monitoring_enabled": true,
+      "latency_monitoring_enabled": true,
+      "cost_monitoring_enabled": true,
+      "evidence_reference": "canary-readiness-academic-advisor-2026-05"
+    }
+  ]
+}

@@ -25,6 +25,7 @@
     "conversation-retention-policy-audit": "php scripts/conversation-retention-policy-audit.php",
     "kb-access-scope-audit": "php scripts/kb-access-scope-audit.php",
     "kb-source-license-audit": "php scripts/kb-source-license-audit.php",
+    "model-migration-canary-readiness": "php scripts/model-migration-canary-readiness.php",
     "provider-failover-readiness": "php scripts/provider-failover-readiness.php",
     "provider-model-deprecation-readiness": "php scripts/provider-model-deprecation-readiness.php",
     "prompt-injection-regression-audit": "php scripts/prompt-injection-regression-audit.php",
