@@ -14,6 +14,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | RAG freshness audit | Review source ownership, review dates, citation requirements, and stale indexes before release |
 | Knowledge-base access scope audit | Gate RAG collections by bot, department, classification, retrieval scope, citation requirement, personal-data approval, and review date |
 | RAG citation integrity audit | Check whether answer claims cite retrieved, approved, current, high-score, and citation-allowed sources |
+| RAG source retirement | Runbook for retiring, replacing, restricting, re-owning, or quarantining knowledge-base sources while preserving citation and audit history |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
 | Prompt release audit | Gates prompt and persona releases for approval, evaluation, red-team, rollback, RAG freshness, tool-policy, and human-review evidence |
 | Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
@@ -134,6 +135,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [RAG Freshness Audit](docs/rag-freshness-audit.md)
 - [Knowledge-Base Access Scope Audit](docs/kb-access-scope-audit.md)
 - [RAG Citation Integrity Audit](docs/rag-citation-integrity-audit.md)
+- [RAG Source Retirement Runbook](docs/rag-source-retirement-runbook.md)
 - [Innovation Layer](docs/innovation-layer.md)
 - [Evaluation Lab](docs/evaluation-lab.md)
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
