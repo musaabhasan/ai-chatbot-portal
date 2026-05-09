@@ -19,6 +19,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Prompt release audit | Gates prompt and persona releases for approval, evaluation, red-team, rollback, RAG freshness, tool-policy, and human-review evidence |
 | Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
 | Evaluation coverage gate | Audits scenario packs for required safety, citation, policy, credential, and research coverage before release |
+| Prompt injection regression audit | Checks release-blocking prompt-injection packs for direct, indirect, extraction, RAG poisoning, tool abuse, and credential-safety coverage |
 | Human review queue audit | Release and closure gate for high-risk chatbot conversations, reviewer assignment, SLA, redaction, escalation, evidence hashes, and version context |
 | Administration | RBAC for super admins, department admins, reviewers, and end users with scoped permissions |
 | Admin activity evidence audit | Governance gate for exported prompt, provider, RAG, RBAC, branding, cost, retention, and decommissioning changes |
@@ -83,6 +84,7 @@ Run local checks:
 php scripts/lint.php
 php scripts/run-evaluation.php
 php scripts/evaluation-coverage-gate.php
+php scripts/prompt-injection-regression-audit.php
 php scripts/rag-freshness-audit.php
 php scripts/check-security-headers.php
 php scripts/provider-incident-evidence.php
@@ -145,6 +147,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Innovation Layer](docs/innovation-layer.md)
 - [Evaluation Lab](docs/evaluation-lab.md)
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
+- [Prompt Injection Regression Audit](docs/prompt-injection-regression-audit.md)
 - [Human Review Queue Audit](docs/human-review-queue-audit.md)
 - [Admin Activity Evidence Audit](docs/admin-activity-evidence-audit.md)
 - [Tool Invocation Policy Audit](docs/tool-invocation-policy-audit.md)
