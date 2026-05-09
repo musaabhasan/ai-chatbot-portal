@@ -1,0 +1,73 @@
+{
+  "bot_id": "student-services-assistant",
+  "bot_name": "Student Services Assistant",
+  "user_group": "student_services_front_desk",
+  "allowed_departments": [
+    "registrar office",
+    "student affairs",
+    "it service desk"
+  ],
+  "approved_classifications": [
+    "public",
+    "internal",
+    "regulated"
+  ],
+  "knowledge_collections": [
+    {
+      "collection_id": "KB-REG-001",
+      "title": "Academic withdrawal policy",
+      "owner_department": "registrar office",
+      "data_classification": "regulated",
+      "retrieval_scope": "bot_only",
+      "citation_required": true,
+      "pii_allowed": false,
+      "approval_status": "approved",
+      "review_due": "2026-07-01",
+      "purpose": "Student academic policy guidance",
+      "sharing_approval": "not_required",
+      "sharing_justification": ""
+    },
+    {
+      "collection_id": "KB-FIN-004",
+      "title": "Financial aid appeals notes",
+      "owner_department": "financial aid office",
+      "data_classification": "confidential",
+      "retrieval_scope": "group",
+      "citation_required": false,
+      "pii_allowed": true,
+      "approval_status": "draft",
+      "review_due": "2026-04-10",
+      "purpose": "Appeal workflow guidance",
+      "sharing_approval": "pending",
+      "sharing_justification": ""
+    },
+    {
+      "collection_id": "KB-IT-002",
+      "title": "Password reset guide",
+      "owner_department": "it service desk",
+      "data_classification": "internal",
+      "retrieval_scope": "bot_only",
+      "citation_required": true,
+      "pii_allowed": false,
+      "approval_status": "approved",
+      "review_due": "2026-06-15",
+      "purpose": "Support triage",
+      "sharing_approval": "not_required",
+      "sharing_justification": ""
+    },
+    {
+      "collection_id": "KB-HR-009",
+      "title": "Staff accommodation notes",
+      "owner_department": "human resources",
+      "data_classification": "restricted",
+      "retrieval_scope": "global",
+      "citation_required": true,
+      "pii_allowed": true,
+      "approval_status": "approved_with_controls",
+      "review_due": "2026-08-01",
+      "purpose": "Incorrectly attached staff support material",
+      "sharing_approval": "approved_with_controls",
+      "sharing_justification": "Temporary cross-functional support review"
+    }
+  ]
+}

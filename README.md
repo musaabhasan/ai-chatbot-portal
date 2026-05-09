@@ -12,6 +12,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Chat experience | Modern operations-console UI with compact navigation, quick prompts, live safety/routing signals, usage telemetry, and source citations |
 | RAG knowledge base | Upload TXT, PDF, and DOCX sources, chunk content, create embeddings, store vectors in MySQL, retrieve cited context, and track document provenance |
 | RAG freshness audit | Review source ownership, review dates, citation requirements, and stale indexes before release |
+| Knowledge-base access scope audit | Gate RAG collections by bot, department, classification, retrieval scope, citation requirement, personal-data approval, and review date |
 | Prompt operations | Versioned system prompts, personas, release notes, approval workflow, rollback, and A/B experiment metadata |
 | Prompt release audit | Gates prompt and persona releases for approval, evaluation, red-team, rollback, RAG freshness, tool-policy, and human-review evidence |
 | Evaluation lab | JSON evaluation packs and CLI runner for prompt, RAG, refusal, citation, and policy behavior checks |
@@ -83,6 +84,7 @@ php scripts/prompt-release-audit.php
 php scripts/cost-budget-audit.php
 php scripts/prompt-log-redaction-preview.php
 php scripts/redaction-residual-audit.php
+php scripts/kb-access-scope-audit.php
 ```
 
 ## Configuration Highlights
@@ -126,6 +128,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Security Model](docs/security-model.md)
 - [RAG Pipeline](docs/rag-pipeline.md)
 - [RAG Freshness Audit](docs/rag-freshness-audit.md)
+- [Knowledge-Base Access Scope Audit](docs/kb-access-scope-audit.md)
 - [Innovation Layer](docs/innovation-layer.md)
 - [Evaluation Lab](docs/evaluation-lab.md)
 - [Evaluation Coverage Gate](docs/evaluation-coverage-gate.md)
