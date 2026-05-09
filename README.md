@@ -26,6 +26,7 @@ AI Integrated Chatbot Portal is a secure PHP 8.3 and MySQL 8 platform for instit
 | Redaction assurance | Residual scan for unredacted tokens, API keys, JWT-like values, emails, and direct identifiers before evidence sharing |
 | Provider incident evidence | Redacted, hashable packages for provider degradation, fallback routing, cost spikes, and safety-filter changes |
 | Provider failover readiness | Pre-release audit for fallback provider order, health checks, timeout/retry limits, residency and safety equivalence, logging, runbook, and evidence |
+| Provider data processing review | Review provider data categories, training use, retention, subprocessors, regions, deletion, assurance evidence, fallback eligibility, and portal configuration controls |
 | Cost budget audit | Department and bot-level cost guardrail for projected spend, hard stops, owner review, and approval evidence |
 | Governance | Interaction logging, cost tracking, token analytics, provider uptime, moderation flags, data residency controls, and configurable retention windows |
 | Operations | Docker Compose stack, health endpoint, CI syntax validation, migration SQL, and deployment hardening guidance |
@@ -139,6 +140,7 @@ Provider keys are encrypted before storage. Environment variables may be used fo
 - [Redaction Residual Audit](docs/redaction-residual-audit.md)
 - [Provider Incident Evidence](docs/provider-incident-evidence.md)
 - [Provider Failover Readiness](docs/provider-failover-readiness.md)
+- [Provider Data Processing Review](docs/provider-data-processing-review.md)
 - [Prompt Release Audit](docs/prompt-release-audit.md)
 - [Cost Budget Audit](docs/cost-budget-audit.md)
 - [Prompt Log Redaction](docs/prompt-log-redaction.md)
