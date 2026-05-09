@@ -26,6 +26,7 @@
     "kb-access-scope-audit": "php scripts/kb-access-scope-audit.php",
     "kb-source-license-audit": "php scripts/kb-source-license-audit.php",
     "provider-failover-readiness": "php scripts/provider-failover-readiness.php",
+    "provider-model-deprecation-readiness": "php scripts/provider-model-deprecation-readiness.php",
     "prompt-injection-regression-audit": "php scripts/prompt-injection-regression-audit.php",
     "rag-citation-integrity-audit": "php scripts/rag-citation-integrity-audit.php",
     "prompt-log-redaction": "php scripts/prompt-log-redaction-preview.php",
